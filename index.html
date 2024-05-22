@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BACCATRA</title>
+    <link rel="icon" href="./assets/imgs/icon.png">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</head>
+
+<body>
+    <div class="w-full m-0 p-0 relative">
+        <div class="fixed w-auto z-10 h-auto">
+            <div id="menu" class="h-screen inset-0 bg-opacity-50 fixed z-10 flex items-center"
+                style=" left: -100%; width: 0;">
+                <div
+                    class="h-screen w-9/12 md:w-4/12 shadow inset-0 bg-white bg-opacity-95 z-10 pt-10 md:pt-16 space-y-6">
+                    <div class="flex space-x-0 justify-center items-center px-4 w-full ">
+                        <input type="text"
+                            class="py-1 shadow placeholder:text-slate-400 placeholder:pl-2 focus:outline-none pl-2 rounded-l"
+                            placeholder="Tìm kiếm..." />
+                        <div class="bg-orange-600 text-white p-1 shadow rounded-r">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-7 h-7">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="w-full">
+                        <ul class="md:space-y-4 space-y-2">
+                            <li
+                                class="flex items-center space-x-2 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
+                                <img class="w-5" src="./assets/Menu/home.jpg" />
+                                <a href="#">Trang chủ</a>
+                            </li>
+                            <li
+                                class="flex items-center space-x-2 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
+                                <img class="w-5" src="./assets/Menu/8pool.jpg" />
+                                <a href="#"> Xổ số </a>
+                            </li>
+                            <li
+                                class="flex items-center space-x-2 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
+                                <img class="w-5" src="./assets/Menu/video.jpg" />
+                                <a href="#"> casino </a>
+                            </li>
+                            <li
+                                class="flex items-center space-x-2 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
+                                <img class="w-5" src="./assets/Menu/star.jpg" />
+                                <a href="#"> Thể thao </a>
+                            </li>
+                            <li
+                                class="flex items-center space-x-2 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
+                                <img class="w-5" src="./assets/Menu/morn.jpg" />
+                                <a href="#">Đá gà </a>
+                            </li>
+                            <li
+                                class="flex items-center space-x-2 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
+                                <img class="w-5" src="./assets/Menu/Capture-10.jpg" />
+                                <a href="#"> Nổ hũ </a>
+                            </li>
+                            <li
+                                class="flex items-center space-x-2 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
+                                <img class="w-5" src="./assets/Menu/trey.jpg" />
+                                <a href="#"> Bắn cá</a>
+                            </li>
+                            <li
+                                class="flex items-center space-x-2 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
+                                <img class="w-5" src="./assets/Menu/beer.jpg" />
+                                <a href="#"> Game bài </a>
+                            </li>
+                            <li
+                                class="flex items-center space-x-2 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
+                                <img class="w-5" src="./assets/Menu/Capture-13.jpg" />
+                                <a href="#">Ưu đãi </a>
+                            </li>
+                            <li
+                                class="flex items-center space-x-2 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
+                                <img class="w-5" src="./assets/Menu/Capture-17.jpg" />
+                                <a href="#"> Đại lý </a>
+                            </li>
+                            <li
+                                class="flex items-center space-x-1 lg:text-sm xl:text-md w-full border-b pl-4 pb-2 md:pb-4">
+                                <a href="#"> Tin tức </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pl-4">
+                        <div class="bg-orange-100 rounded-full font-semibold py-2 px-2 w-32 flex justify-center items-center"
+                            style="background-color: #eace9a">
+                            <a href="#"> Đăng Ký +</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="framMenu" class="h-full  inset-0 bg-gray-800 bg-opacity-50 relative"
+                    onclick="HandleHiddenMenu()" style="width: 0; left: -100%;">
+                    <div id="btnMenu"
+                        class="right-1 top-1 absolute bg-gray-300 w-6 h-6 rounded flex justify-center items-center">
+                        X
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bg-blue-950 w-full fixed z-50 ">
+            <div class="flex flex-col items-center justify-center 2xl:w-7/12 xl:w-10/12 lg:w-11/12  mx-auto text-white">
+                <div class="w-full lg:justify-between lg:flex lg:items-center">
+                    <div onclick="HandleShowMenu()"
+                        class="bg-orange-200 rounded-full w-9 h-9 flex lg:hidden justify-center items-center absolute left-5 top-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 text-white">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </div>
+
+                    <div class="flex items-center justify-center lg:justify-start py-2">
+                        <img src="./assets/imgs/logo.png" class="w-56" />
+                    </div>
+
+                    <ul
+                        class="flex space-x-8 lg:space-x-5 py-2 items-center justify-center lg:justify-normal bg-[#5121ba] lg:bg-blue-950 w-full lg:w-auto">
+                        <li class="bg-orange-100 rounded-full font-semibold py-1 md:py-2 px-5"
+                            style="background-color: #eace9a">
+                            <a href="#" class="text-[13.1px] font-[roboto] uppercase text-gray-900 font-semibold">Đăng
+                                Nhập</a>
+                        </li>
+                        <li class="bg-orange-100 rounded-full font-semibold py-1 md:py-2 px-5"
+                            style="background-color: #eace9a">
+                            <a href="#" class="text-[13.1px] font-[roboto] uppercase text-gray-900 font-semibold">Đăng
+                                Ký +</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-[#5121ba] w-full py-4 hidden lg:flex lg:flex-col items-center justify-center">
+                <div
+                    class="hidden lg:flex lg:flex-col items-center justify-center space-y-4 2xl:w-7/12 xl:w-10/12 lg:w-11/12 lg:w-12/12 mx-auto font-semibold text-white">
+                    <ul class="w-full uppercase flex justify-between items-center mx-auto">
+                        <li class="flex items-center space-x-1 text-[12.8px]">
+
+                            <a href="#" class="flex items-center space-x-1 justify-center"><img class="w-5"
+                                    src="./assets/Menu/home.jpg" /> <span>Trang chủ</span></a>
+                        </li>
+
+                        <li class="flex items-center space-x-1 text-[12.8px]">
+                            <a href="#" class="flex items-center space-x-1 justify-center"><img class="w-5"
+                                    src="./assets/Menu/8pool.jpg" /> <span>Xổ số</span> </a>
+                        </li>
+
+                        <li class="flex items-center space-x-1 text-[12.8px]">
+                            <a href="#" class="flex items-center space-x-1 justify-center"><img class="w-5"
+                                    src="./assets/Menu/video.jpg" /> <span>casino </span></a>
+                        </li>
+
+                        <li class="flex items-center space-x-1 text-[12.8px]">
+                            <a href="#" class="flex items-center space-x-1 justify-center"><img class="w-5"
+                                    src="./assets/Menu/star.jpg" /> <span>Thể thao</span> </a>
+                        </li>
+
+                        <li class="flex items-center space-x-1 text-[12.8px]">
+                            <a href="#" class="flex items-center space-x-1 justify-center"><img class="w-5"
+                                    src="./assets/Menu/morn.jpg" /><span>Đá gà</span> </a>
+                        </li>
+
+                        <li class="flex items-center space-x-1 text-[12.8px]">
+                            <a href="#" class="flex items-center space-x-1 justify-center"><img class="w-5"
+                                    src="./assets/Menu/Capture-10.jpg" /> <span>Nổ hũ</span> </a>
+                        </li>
+
+                        <li class="flex items-center space-x-1 text-[12.8px]">
+                            <a href="#" class="flex items-center space-x-1 justify-center"><img class="w-5"
+                                    src="./assets/Menu/trey.jpg" /> <span>Bắn cá</span></a>
+                        </li>
+
+                        <li class="flex items-center space-x-1 text-[12.8px]">
+                            <a href="#" class="flex items-center space-x-1 justify-center"><img class="w-5"
+                                    src="./assets/Menu/beer.jpg" /> <span>Game bài</span> </a>
+                        </li>
+
+                        <li class="flex items-center space-x-1 text-[12.8px]">
+                            <a href="#" class="flex items-center space-x-1 justify-center"><img class="w-5 mb-1"
+                                    src="./assets/Menu/Capture-13.jpg" /><span>Ưu đãi</span> </a>
+                        </li>
+
+                        <li class="flex items-center space-x-1 text-[12.8px]">
+                            <a href="#" class="flex items-center space-x-1 justify-center"><img class="w-5"
+                                    src="./assets/Menu/Capture-17.jpg" /> <span>Đại lý</span> </a>
+                        </li>
+
+                        <li class="xl:flex hidden items-center space-x-1 text-[12.8px]">
+                            <a href="#" class="flex items-center space-x-1 justify-center">Tin tức </a>
+                        </li>
+                    </ul>
+                    <li class="flex items-center space-x-1 font-semibold uppercase text-[12.8px] text-white xl:hidden">
+                        <a href="#" class="text-center"> Tin tức </a>
+                    </li>
+                </div>
+            </div>
+
+            <div class="w-full bg-white py-1 text-gray-500 px-5 lg:px-0 hidden md:flex">
+                <div class="flex items-center 2xl:w-7/12 xl:w-10/12 lg:w-11/12 lg:w-12/12 mx-auto">
+                    <p class="w-36">Tin tức mới nhất:</p>
+                    <marquee behavior="" direction="" class="w-full text-gray-400">
+                        <div class="flex items-center space-x-1">
+                            <img src="./assets/imgs/plerng.png" class="w-5" />
+                            <p>
+                                hay88 chào mừng hội viên mới đến với thế giới giải trí đổi thưởng đẳng cấp châu Á. Chào
+                                mừng đến với trang chủ nhà cái uy tín tại Hay88x.com | Link đăng ký, đăng nhập, hỗ trợ
+                                thành viên mới chính thức 2024. Nếu trong quá trình Nạp tiền, Rút tiền, Tải app hay88
+                                gặp sự cố. Quý khách vui lòng bấm vào liên hệ để được tư vấn hỗ trợ từ đội ngũ chăm sóc
+                                khách hàng của chúng tôi. Chúc quý khách hàng một ngày tốt lành may mắn khi tham gia cá
+                                cược trực tuyến.🔥
+
+                            </p>
+                        </div>
+                    </marquee>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- main -->
+        <div
+            class="flex flex-col items-center justify-center 2xl:w-7/12 xl:w-10/12 lg:w-11/12 w-full px-5 lg:px-0 mx-auto bg-white pt-36 md:pt-44">
+            <div class="space-y-6 w-full ">
+                <div
+                    class="md:pt-1 lg:pt-9 xl:pt-5 2xl:pt-2 grid md:grid-cols-3 grid-cols-1 gap-5 md:gap-6 lg:gap-8 my-7 px-12  md:px-4">
+                    <button>
+
+                        <a href="https://hay8822.com/home/#/" target="_blank">
+                            <img src="./assets/imgs/Btn1.png" />
+                        </a>
+                    </button>
+                    <button>
+
+                        <a href="https://hay8822.com/home/#/" target="_blank">
+                            <img src="./assets/imgs/Btn2.png" />
+                        </a>
+                    </button>
+                    <button>
+
+                        <a href="https://hay8822.com/home/#/" target="_blank">
+                            <img src="./assets/imgs/Btn3.png" />
+                        </a>
+                    </button>
+                </div>
+
+                <div class="space-y-5">
+                    <h1 class=" text-3xl flex justify-center items-center font-bold text-gray-600 text-center">
+                        Bí Quyết Cược Baccarat Hay88 Hiệu Quả, Kiếm Tiền Nhanh Như Chớp Tại Hay88
+                    </h1>
+                    <p class=" text-center text-gray-500 font-semibold">
+                        <span class=" text-gray-600 font-bold cursor-pointer">Baccarat Hay88</span>
+                        là một tựa game sòng bài đỉnh cao có tại Casino. Tại đây các tay chơi sẽ được
+                        trải nghiệm hòa mình vào thế giới sòng bài huyền bí đầy hấp dẫn. Để trở thành thần bài một cách
+                        dễ dàng và nhanh chóng, hãy theo dõi bài viết dưới đây để biết rõ hơn về Baccarat Hay88.
+                    </p>
+
+                    <h1 class=" text-2xl flex font-bold text-gray-600 text-center">
+                        Thế nào là Baccarat Hay88?
+                    </h1>
+                </div>
+
+                <div class=" w-full space-y-6">
+                    <div class="flex justify-center items-center px-0 lg:px-24">
+                        <img src="./assets/imgs/Slots1.jpg" class="w-full" />
+                    </div>
+
+                    <p class=" text-gray-500 font-semibold">
+                        Baccarat Hay88 là một biến thể của poker bắt nguồn từ nước Ý.Đây là một trò chơi so sánh
+                        điểm số giữa hai cửa “người chơi” và cửa “nhà cái”. Mỗi vòng chơi có ba kết quả có thể xảy
+                        ra: “người chơi” (người chơi có số điểm cao hơn), “nhà cái” và “hòa”. Hiện nay Baccarat đã
+                        có chỗ đứng và trở thành một trò chơi cá cược phổ biến tại các sòng bạc Á Âu trên toàn thế
+                        giới.
+                    </p>
+                </div>
+
+
+                <div class=" w-full space-y-6">
+                    <h1 class=" text-2xl flex font-bold text-gray-600 text-center">
+                        Lý do nên chọn Baccarat Hay88
+                    </h1>
+                    <div class="flex justify-center items-center px-0 lg:px-24">
+                        <img src="./assets/imgs/Slots2.jpg" class="w-full" />
+                    </div>
+                    <ul class="space-y-3 list-disc text-gray-500 px-4">
+                        <li>
+                            <p class=" text-gray-500 font-semibold">
+                                Ưu đãi vô vàn với tỉ lệ đổi thưởng cao.Đây là điểm mạnh nhất để lôi kéo thu hút người
+                                chơi đến với Baccarat Hay88. Khiến cho người chơi thích thú và người chơi có nhiều lựa
+                                chọn các ưu đãi để tăng thêm lợi nhuận cho mình. Vậy nên lựa chọn Baccarat Hay88 hoàn
+                                toàn là một điều đúng đắn, phù hợp với nhu cầu người chơi, kéo thêm số lượng đông đảo về
+                                với Baccarat.
+                            </p>
+                        </li>
+                        <li>
+                            <p class=" text-gray-500 font-semibold">
+                                Với luật chơi vô cùng đơn giản, chỉ cần đọc qua là người chơi có thể hiểu ngay. Không
+                                làm mất thời gian cũng không kéo dài khiến người chơi phải lo lắng mà giúp cho họ nhanh
+                                chóng tham gia và trải nghiệm Baccarat Hay88.
+                            </p>
+                        </li>
+                        <li>
+                            <p class=" text-gray-500 font-semibold">
+                                Được tương tác trực tiếp với các quý cô Dealer là một đặc điểm siêu cuốn tại đây. Các
+                                quý cô sexy, nóng bỏng giữ chân được người chơi, cùng nhau tạo ra những khoảnh khắc
+                                tuyệt vời ở Baccarat Hay88.
+                            </p>
+                        </li>
+                        <li>
+                            <p class=" text-gray-500 font-semibold">
+                                Cổng game Baccarat Hay88 được đánh giá cao về sự đa dạng của cổng game, quy mô đa dạng
+                                trên nhiều lĩnh vực. Tại đây người chơi thỏa thích lựa chọn để trải nghiệm.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class=" w-full space-y-6">
+                    <h1 class=" text-2xl flex font-bold text-gray-600 text-center">
+                        Một số thuật ngữ dành cho tân thủ
+                    </h1>
+                    <div class="flex justify-center items-center px-0 lg:px-24">
+                        <img src="./assets/imgs/Slots3.jpg" class="w-full" />
+                    </div>
+                    <div class="space-y-6">
+                        <p class=" text-gray-500 font-semibold">Trước tiên tham gia thì bạn cần biết và hiểu những thuật
+                            ngữ sau đây để dễ dàng tranh đấu cùng các đối thủ của mình.</p>
+                        <ul class="space-y-3 text-gray-500 px-4 font-semibold">
+                            <li>
+                                <p class=" text-gray-500 font-semibold">
+                                    <span class=" text-gray-600 font-bold">
+                                        Player:
+                                    </span>
+                                    Đây là cửa đặt dùng cho người chơi, thanh toán 1:1 khi bạn giành được chiến thắng.
+                                </p>
+                            </li>
+                            <li>
+                                <p class=" text-gray-500 font-semibold">
+                                    <span class=" text-gray-600 font-bold">
+                                        Small:
+                                    </span>
+                                    Cược khoảng cách nhỏ cụ thể bạn chiến thắng khi khoảng cách điểm của bạn là 4.
+                                </p>
+                            </li>
+                            <li>
+                                <p class=" text-gray-500 font-semibold">
+                                    <span class=" text-gray-600 font-bold">
+                                        Big:
+                                    </span>
+                                    Cược khoảng cách lớn cụ thể bạn chiến thắng khi khoảng cách điểm của bạn là 5 hoặc
+                                    là 6.
+                                </p>
+                            </li>
+                            <li>
+                                <p class=" text-gray-500 font-semibold">
+                                    <span class=" text-gray-600 font-bold">
+                                        Tie:
+                                    </span>
+                                    Tức là cửa hòa khi 2 cửa có số điểm bằng nhau, tỉ lệ thưởng gấp 8-9 lần cược.
+                                </p>
+                            </li>
+                            <li>
+                                <p class=" text-gray-500 font-semibold">
+                                    <span class=" text-gray-600 font-bold">
+                                        Banker:
+                                    </span>
+                                    Cửa này đặt cho nhà cái, khi bạn chiến thắng bạn buộc trả 5% hoa hồng cho nhà cái.
+                                </p>
+                            </li>
+                            <li>
+                                <p class=" text-gray-500 font-semibold">
+                                    <span class=" text-gray-600 font-bold">
+                                        Natural:
+                                    </span>
+                                    Điểm đầu tiên là 8 hoặc 9, bạn chiến thắng và không cần rút thêm một lá bài nào.
+                                </p>
+                            </li>
+                        </ul>
+                        <h1 class="text-gray-600 font-bold text-2xl">
+                            Giá trị của các lá bài
+                        </h1>
+                        <p class="text-gray-500 font-semibold">
+                            Giá trị của các lá bài Baccarat như sau:
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class=" w-full space-y-6">
+                    <div class="flex justify-center items-center px-0 lg:px-24">
+                        <img src="./assets/imgs/Slots4.jpg" class="w-full" />
+                    </div>
+                    <ul class="space-y-3 list-disc text-gray-500 px-4">
+                        <li>
+                            <p class=" text-gray-500 font-semibold">
+                                Lá từ 2 – 9: Số điểm của bạn bằng với số được in trên lá bài của bạn
+                            </p>
+                        </li>
+                        <li>
+                            <p class=" text-gray-500 font-semibold">
+                                Lá A: Điểm của bạn sẽ là 1 điểm
+                            </p>
+                        </li>
+                        <li>
+                            <p class=" text-gray-500 font-semibold">
+                                Lá 10, J, Q, K: Điểm của bạn sẽ là 0 điểm
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class=" w-full space-y-6">
+                    <h1 class="text-gray-600 font-bold text-2xl">
+                        Mẹo nhỏ về cách chơi Baccarat Hay88
+                    </h1>
+                    <div class="flex justify-center items-center px-0 lg:px-24">
+                        <img src="./assets/imgs/Slots5.jpg" class="w-full" />
+                    </div>
+                    <ul class="space-y-3 list-disc text-gray-500 px-4">
+                        <li>
+                            <p class=" text-gray-500 font-semibold">
+                                Cách chơi Baccarat Hay88 đơn giản và dễ hiểu. Để dễ dàng dành được chiến thắng, nội dung
+                                dưới đây sẽ hướng dẫn chi tiết cho bạn.
+                            </p>
+                        </li>
+                        <li>
+                            <p class=" text-gray-500 font-semibold">
+                                Khi trò chơi bắt đầu: Các quý cô Dealer sẽ chia 2 lá bài cho bạn và nhà cái.
+                            </p>
+                        </li>
+                        <li>
+                            <p class=" text-gray-500 font-semibold">
+                                Xem xét tỉ lệ cược: Bạn và nhà cái sẽ xem xét và đưa ra quyết định đặt cược hoặc là rút
+                                thêm một lá bài.
+                            </p>
+                        </li>
+                        <li>
+                            <p class=" text-gray-500 font-semibold">
+                                Đếm điểm: Bên nào có điểm bằng hoặc gần bằng 9 thì sẽ giành chiến thắng. Trong trường
+                                hợp nếu như hòa thì tỉ lệ trả thưởng sẽ gấp 8-9 lần số tiền cược
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+                <div class=" w-full space-y-6">
+                    <h1 class="text-gray-600 font-bold text-2xl">
+                        Bài học kinh nghiệm từ thần bài
+                    </h1>
+                    <div class="flex justify-center items-center px-0 lg:px-24">
+                        <img src="./assets/imgs/Slots5.jpg" class="w-full" />
+                    </div>
+                    <div class="space-y-6">
+                        <p class=" text-gray-500 font-semibold">
+                            Để tối ưu hóa phần trăm tỉ lệ thắng cao thì ở đây sẽ có
+                            2 chiến thuật sau:
+                        </p>
+                        <p class=" text-gray-600 font-bold">Canh bài dựa trên luật chơi của Baccarat Hay88</p>
+                        <p class=" text-gray-500 font-semibold">
+                            Cách này được sử dụng rất phổ biến, được nhiều người chơi áp dụng vào. Cách thức của nó như
+                            sau:
+                        </p>
+                        <ul class="space-y-3 text-gray-500 px-4 font-semibold list-disc">
+                            <li class=" space-y-5">
+                                <p class=" text-gray-500 font-semibold">
+                                    <span class=" text-gray-600 font-bold">
+                                        Cách 1
+                                    </span>
+                                    Mỗi một ván đổi cửa một lần
+                                </p>
+                                <p class=" text-gray-500 font-semibold">
+                                    Coi lại lịch sử thắng thua ở các ván trước của bạn
+                                </p>
+                                <p class=" text-gray-500 font-semibold">
+                                    Nếu bạn thấy các cửa đổi phiên cho nhau giành chiến thắng thì bạn hãy áp dụng theo
+                                    chiến thuật đó.
+                                </p>
+                                <p class=" text-gray-500 font-semibold">
+                                    Ví dụ như sau: Lịch sử các ván lần lượt là Player – Banker – Player – Banker –
+                                    Player, hãy đặt cược cho cửa Banker khi ván hiện tại là Player.
+                                </p>
+                            </li>
+                            <li class=" space-y-5">
+                                <p class=" text-gray-500 font-semibold">
+                                    <span class=" text-gray-600 font-bold">
+                                        Cách 2
+                                    </span>
+                                    Lặp vòng: 2 hoặc 3
+                                </p>
+                                <p class=" text-gray-500 font-semibold">
+                                    Trong một chuỗi nếu như tất cả đều xuất hiện cùng một cửa thì đó là quy luật lặp
+                                    vòng
+                                </p>
+                                <p class=" text-gray-500 font-semibold">
+                                    Nếu bạn sử dụng cách chơi này thì cơ hội chiến thắng của bạn sẽ cao hơn.
+                                </p>
+                                <h2 class=" text-gray-600 font-bold">
+                                    Canh bài theo dây chuyền
+                                </h2>
+                                <p class=" text-gray-500 font-semibold">
+                                    Các cửa chơi sẽ xuất hiện dưới dạng chuỗi vòng. Điều này sẽ giúp cho người chơi dự
+                                    đoán và đặt cược chơi một cách dễ dàng và hiệu quả..
+                                </p>
+                                <h2 class=" text-gray-600 font-bold">
+                                    Một cửa xuất hiện 3 lần liên tiếp
+                                </h2>
+                                <p class=" text-gray-500 font-semibold">
+                                    Nếu ba ván trước đều nổ tại cửa Player thì bạn sẽ đặt ván tiếp theo là Banker
+                                </p>
+                                <h2 class=" text-gray-600 font-bold">
+                                    Đảm bảo kết nối ổn định
+                                </h2>
+                                <p class=" text-gray-500 font-semibold">
+                                    Bạn cần đảm bảo được internet của mình để tránh trường hợp rủi ro xảy ra.
+                                </p>
+                            </li>
+                        </ul>
+
+
+
+                        <h1 class="font-bold text-gray-600 text-2xl">
+                            Kết luận
+                        </h1>
+                        <p class=" text-gray-500 font-semibold">
+                            <span onclick="scrollToTop()" class=" text-gray-600 font-bold cursor-pointer">
+                                Baccarat Hay88
+                            </span> luôn đồng hành cùng với bạn. Mang đến cho bạn nhiều trải nghiệm thú vị, hấp dẫn
+                            tạiHay88 Hy vọng rằng bài viết này sẽ giúp cho bạn hiểu rõ hơn và biết thêm một số mẹo để
+                            gia tăng tỉ lệ thắng thu về chiến lợi phẩm lớn cho mình. Hãy nhanh tay tham gia Baccarat
+                            Hay88 ngay để cùng nhau tận hưởng những thứ mới mẻ, siêu cuốn tại đây.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+        <!-- buttton click scroll to top -->
+        <button onclick="scrollToTop()" title="Go to top" id="scrollToTopBtn"><ion-icon name="arrow-up"
+                class="fixed bottom-3 right-4 z-0 text-3xl bg-yellow-600 px-0.5 py-1.5 rounded text-white"></ion-icon></button>
+
+
+        <!-- footer -->
+        <footer class=" w-full bg-[#292e3b] pt-10 space-y-16 mt-8 md:mt-12">
+            <div
+                class="flex flex-col items-center justify-center 2xl:w-7/12 xl:w-10/12 lg:w-11/12 w-full px-5 lg:px-0 mx-auto ">
+                <img src="./assets/imgs/footer.webp" class="w-full" />
+                <div class=" border border-gray-500 w-full my-10"></div>
+
+
+
+                <div class="grid md:grid-cols-4 grid-cols-1 gap-8 lg:gap-10 xl:gap-14 2xl:gap-20 text-gray-100">
+                    <div class=" space-y-4 -mt-2">
+                        <div class="w-full flex justify-center ">
+                            <img src="./assets/imgs/logo.png" class="w-36" />
+                        </div>
+                        <p class="text-sm text-gray-200 text-inherit">
+                            hay88 là một trong những nhà cái uy tín hàng đầu tại châu Á. Với cam kết không ngừng phát
+                            triển sản phẩm và dịch vụ, Hay88 xác định vị thế của mình trong lĩnh vực game trực tuyến với
+                            3 ưu điểm vượt trội là: game đa dạng dễ chơi dễ trúng, trả thưởng nhanh xanh chín, khuyến
+                            mãi khủng được tung ra hàng ngày.
+                        </p>
+                        <div class="flex items-center justify-center space-x-2">
+                            <a href="https://www.hay8833.com/home/?inviteCode=3128320#/" target="_blank"
+                                class="hover:bg-indigo-600 transition-all duration-100 w-8 h-8 rounded-full flex justify-center items-center border-2 border-gray-200">
+                                <ion-icon name="logo-facebook" class=" w-5 h-5"></ion-icon> </a>
+                            <a href="https://www.hay8833.com/home/?inviteCode=3128320#/" target="_blank"
+                                class="hover:bg-indigo-600 transition-all duration-100 w-8 h-8 rounded-full flex justify-center items-center border-2 border-gray-200">
+                                <ion-icon name="logo-twitter" class=" w-5 h-5"></ion-icon> </a>
+                            <a href="https://www.hay8833.com/home/?inviteCode=3128320#/" target="_blank"
+                                class="hover:bg-red-600 transition-all duration-100 w-8 h-8 rounded-full flex justify-center items-center border-2 border-gray-200">
+                                <ion-icon name="logo-linkedin" class=" w-5 h-5"></ion-icon> </a>
+                            <a href="https://www.hay8833.com/home/?inviteCode=3128320#/" target="_blank"
+                                class="hover:bg-orange-600 transition-all duration-100 w-8 h-8 rounded-full flex justify-center items-center border-2 border-gray-200">
+                                <ion-icon name="logo-rss" class=" w-5 h-5"></ion-icon> </a>
+                            <a href="https://www.hay8833.com/home/?inviteCode=3128320#/" target="_blank"
+                                class="hover:bg-orange-600 transition-all duration-100 w-8 h-8 rounded-full flex justify-center items-center border-2 border-gray-200"><ion-icon
+                                    name="logo-pinterest" class=" w-5 h-5"></ion-icon> </a>
+                            <a href="https://www.hay8833.com/home/?inviteCode=3128320#/" target="_blank"
+                                class="hover:bg-indigo-600 transition-all duration-100 w-8 h-8 rounded-full flex justify-center items-center border-2 border-gray-200">
+                                <ion-icon name="logo-youtube" class=" w-5 h-5"></ion-icon> </a>
+                        </div>
+                    </div>
+
+
+                    <div class="space-y-6">
+                        <h1 class=" font-bold text-xl">HƯỚNG DẪN HAY88</h1>
+                        <ul class="gap-3 grid grid-cols-1">
+                            <li
+                                class=" flex items-center justify-start hover:scale-105  duration-500 transition-all border-b pb-2 border-gray-300 w-12/12 space-x-1">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </span>
+                                <p class="space-x-1"><span class="text-sm text-gray-200">Đăng Ký</span><button
+                                        class=" rounded-lg px-1 bg-red-700 text-gray-200 text-[8px]">THỊNH HÀNH</button>
+                                </p>
+
+                            </li>
+                            <li
+                                class=" flex items-center justify-start hover:scale-105  duration-500 transition-all border-b pb-2 border-gray-300 w-12/12 space-x-1">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </span>
+                                <span class="text-sm">Đăng Nhập</span>
+                            </li>
+                            <li
+                                class=" flex items-center justify-start hover:scale-105  duration-500 transition-all border-b pb-2 border-gray-300 w-12/12 space-x-1">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </span>
+                                <span class="text-sm">Nạp Tiền</span>
+                            </li>
+                            <li
+                                class=" flex items-center justify-start hover:scale-105  duration-500 transition-all border-b pb-2 border-gray-300 w-12/12 space-x-1">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </span>
+                                <span class="text-sm">Rút Tiền</span>
+                            </li>
+
+
+                            <li
+                                class=" flex items-center justify-start hover:scale-105  duration-500 transition-all border-b pb-2 border-gray-300 w-12/12 space-x-1">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </span>
+                                <span class="text-sm">Tải App</span>
+                            </li>
+
+
+
+                            <li
+                                class=" flex items-center justify-start hover:scale-105  duration-500 transition-all border-b pb-2 border-gray-300 w-12/12 space-x-1">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </span>
+                                <span class="text-sm">Tin Tức</span>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class="space-y-6">
+                        <h1 class=" font-bold text-xl">HƯỚNG DẪN HAY88</h1>
+                        <ul class="gap-3 grid grid-cols-1">
+                            <li
+                                class=" flex items-center justify-start hover:scale-105  duration-500 transition-all border-b pb-2 border-gray-300 w-full space-x-1">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </span>
+                                <span class="text-sm"> Casino Trực Tuyến</span>
+                            </li>
+                            <li
+                                class=" flex items-center justify-start hover:scale-105  duration-500 transition-all border-b pb-2 border-gray-300 w-full space-x-1">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </span>
+                                <span class="text-sm">Poker</span>
+                            </li>
+                            <li
+                                class=" flex items-center justify-start hover:scale-105  duration-500 transition-all border-b pb-2 border-gray-300 w-full space-x-1">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </span>
+                                <span class="text-sm">Bắn Cá</span>
+                            </li>
+                            <li
+                                class=" flex items-center justify-start hover:scale-105  duration-500 transition-all border-b pb-2 border-gray-300 w-full space-x-1">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </span>
+                                <span class="text-sm">Đá Gà </span>
+                            </li>
+
+
+                            <li
+                                class=" flex items-center justify-start hover:scale-105  duration-500 transition-all border-b pb-2 border-gray-300 w-full space-x-1">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </span>
+                                <span class="text-sm">Nổ Hủ</span>
+                            </li>
+
+
+
+                            <li
+                                class=" flex items-center justify-start hover:scale-105  duration-500 transition-all border-b pb-2 border-gray-300 w-full space-x-1">
+                                <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                    </svg>
+                                </span>
+                                <span class="text-sm">Xổ Số</span>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <div class=" space-y-6">
+                        <h1 class="text-xl font-semibold text-gray-200">
+                            LIÊN HỆ
+                        </h1>
+
+                        <div class=" space-y-2 font-semibold">
+                            <p class="text-gray-200 text-[15px]">
+                                Địa chỉ: 12 Long Biên, Chương
+                            </p>
+                            <p class="text-gray-200 text-[15px]">
+                                Dương Độ, Hoàn Kiếm, Hà Nội,
+                            </p>
+                            <p class="text-gray-200 text-[15px]">
+                                Việt Nam
+                            </p>
+                            <p class="text-gray-200 text-[15px]">
+                                Số điện thoại: (+84) 925189888
+                            </p>
+                            <p class="text-gray-200 text-[15px]">
+                                Email: hay88008@gmail.com
+                            </p>
+                            <p class="text-gray-200 text-[15px]">
+                                Website: <a href="https://www.hay8833.com/home/?inviteCode=3128320#/" target="_blank"
+                                    class="text-yellow-500 pl-1 text-lg">hay88.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full bg-[#dd9933] shadow-lg py-4 flex justify-center items-center text-gray-200 space-x-2">
+                <span>Copyright 2024 ©</span> <span class=" text-lg font-semibold"> Bản quyền HAY88.COM</span>
+            </div>
+        </footer>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>
